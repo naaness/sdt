@@ -1,0 +1,8 @@
+.task-info{
+    color: #2e2e61;
+}
+
+.task-info:hover {
+    color: #7373AB;
+    cursor: pointer;
+}

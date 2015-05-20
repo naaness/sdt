@@ -1,0 +1,89 @@
+<h1 class="text-center">{{ title }}</h1>
+<ul class="nav nav-pills">
+    <li role="presentation" ng-click="goToType(type1)"><a  >Checklist General</a></li>
+    <li role="presentation" ng-click="goToType(type2)"><a  >Mis proyectos</a></li>
+    <li role="presentation" ng-click="goToType(type3)"><a  >Proyectos</a></li>
+    <li role="presentation" ng-click="goToType(type4)"><a  >Delegadas a mi</a></li>
+    <li role="presentation" ng-click="goToType(type5)"><a  >Mis delegadas</a></li>
+    <li role="presentation" ng-click="goToType(type6)"><a  >Mis Tareas</a></li>
+</ul>
+
+<div id="main_container" style="padding:0; margin:0;" class="text-center">
+    <div id="drag" style="height:400px">
+        <table id="tb" style="width:100%" >
+            <colgroup>
+                <col width="30%"/>
+                <col width="15%"/>
+                <col width="74%"/>
+                <col width="1%"/>
+            </colgroup>
+            <tbody>
+            <tr class="rl">
+                <td class="only cdark">
+                    <button type="button" class="btn btn-default" id="ch_btn_hoy" ng-click="goToday()" >
+                        Hoy
+                    </button>
+                    {{ name_range }}
+                </td>
+                <td class="only cdark">
+                    <div class="input-group">
+                        <a class="input-group-addon dummy" id="ch_btn_left" ng-click="goToBack()">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                        </a>
+                        <select id="rangoVista" style="display: inline-block;" class="form-control" ng-change="goToRange()" ng-model="sdt_range">
+                            <option ng-repeat="obj in options" value="{{obj.value}}" ng-selected="sdt_range_ini == obj.label" >{{obj.label}}</option>
+
+                        </select>
+                        <a class="input-group-addon dummy" id="ch_btn_right" ng-click="goToFrom()">
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                        </a>
+                    </div>
+                </td>
+                <td class="only cdark">
+                    <div class="btn-group" data-toggle="buttons">
+                        <label class="btn btn-default active" id="ch-mode-1" >
+                            <input type="radio" name="options" autocomplete="off" checked>Normal
+                        </label>
+                        <label class="btn btn-default" id="ch-mode-2" >
+                            <input type="radio" name="options" autocomplete="off">Agregar
+                        </label>
+                        <label class="btn btn-default" id="ch-mode-3" >
+                            <input type="radio" name="options" autocomplete="off">Eliminar
+                        </label>
+                        <label class="btn btn-default" id="ch-mode-4" >
+                            <input type="radio" name="options" autocomplete="off">Mover
+                        </label>
+                    </div>
+                </td>
+                <td class="only cdark">
+
+                </td>
+
+            </tr>
+            </tbody>
+        </table>
+        <div id="tabla" style="height:350px;position: relative">
+            <div style="width: {{ sdt_width }}px;-moz-column-width: {{ sdt_width }}px">
+                <div style="position: relative" width="{{ sdt_width }}px;">
+                    <table id="tb0" class="table table-condensed ">
+                        <tbody>
+                        <tr class="rl" id="ch-head1">
+                        </tr>
+                        <tr class="rl" id="ch-head2" style="font-size: 10pt">
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div style="position: relative;top: 0px" width="{{ sdt_width }}px">
+                    <table id="tbl" class="table table-condensed">
+                        <colgroup>
+                        </colgroup>
+                        <tbody id="ch-body">
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
